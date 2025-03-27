@@ -19,12 +19,14 @@ app.use(express.json())
 //     methods: ['GET', 'POST', 'PATCH', 'PUT', 'DELETE'],
 // }
 
-const corOpt = {
-    origin: process.env.CLIENT_URL || ['http://localhost:3000'],
-    methods: ['GET', 'POST', 'PATCH', 'PUT', 'DELETE'],
-}
+// const corOpt = {
+//     origin: process.env.CLIENT_URL || ['http://localhost:3000'],
+//     methods: ['GET', 'POST', 'PATCH', 'PUT', 'DELETE'],
+// }
 
 
-app.use(cors(corOpt))
+// app.use(cors(corOpt))
+
+app.use(cors())
 app.use('/api/v1', authROute)
 app.listen(PORT, ()=>console.log(`Server running on port ${PORT}`))
