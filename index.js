@@ -17,7 +17,7 @@ app.use(express.json())
 
 const corOpt = {
     origin: CLIENT_URL || ['http://localhost:5173'],
-    credentials: true,
+    Credentials: true,
     methods: ['GET', 'POST', 'PATCH', 'PUT', 'DELETE'],
 }
 
