@@ -157,14 +157,12 @@ export const resetPassword = async (req, res) => {
   }
 };
 
-export const login = async (req, res) => {
+export const login = async(req, res) => {
   try {
     const { email, password } = req.body;
     const user = await User.findOne({ email });
     if (!user || !(await user.comparePassword(password))) {
-      return res
-        .status(403)
-        .json({ success: false, message: "Invalid credentials" });
+      return res.status(403).json({ success: false, message: "Invalid credentials" });
     }
     if(!user.isVerified){
       return res.status(403).json({success: false, message: "Please verify your email"})
