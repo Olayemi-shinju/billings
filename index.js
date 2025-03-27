@@ -12,18 +12,13 @@ app.use(express.json());
 app.use(cookieParse());
 connectDB()
 app.use(express.json())
-// app.use(cors())
+
 
 const corOpt = {
     origin: CLIENT_URL || ['http://localhost:5173'],
     credentials: true,
     methods: ['GET', 'POST', 'PATCH', 'PUT', 'DELETE'],
 }
-
-// const corOpt = {
-//     origin: process.env.CLIENT_URL || ['http://localhost:3000'],
-//     methods: ['GET', 'POST', 'PATCH', 'PUT', 'DELETE'],
-// }
 
 
 app.use(cors(corOpt))
