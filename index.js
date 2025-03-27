@@ -6,13 +6,13 @@ const PORT = process.env.PORT || 5000
 const CLIENT_URL = process.env.CLIENT_URL
 import authROute from './routes/auth.route.js'
 import cors from 'cors'
-app.use(cors())
 const app = express();
+dotenv.config();
 app.use(express.json());
 app.use(cookieParse());
 connectDB()
 app.use(express.json())
-dotenv.config();
+app.use(cors())
 
 // const corOpt = {
 //     origin: CLIENT_URL || ['http://localhost:3000'],
