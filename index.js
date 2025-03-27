@@ -3,11 +3,9 @@ import dotenv from 'dotenv'
 import cookieParse from 'cookie-parser'
 import { connectDB } from './db/connectDB.js'
 const PORT = process.env.PORT || 5000
-const CLIENT_URL = process.env.CLIENT_URL
 import authROute from './routes/auth.route.js'
 import cors from 'cors'
 const app = express();
-app.use(cors())
 dotenv.config();
 app.use(express.json());
 app.use(cookieParse());
@@ -16,7 +14,7 @@ app.use(express.json())
 
 
 const corOpt = {
-    origin: CLIENT_URL || ['http://localhost:5173'],
+    origin: process.env.CLIENT_URL || ['http://localhost:5173'],
     credentials: true,
     methods: ['GET', 'POST', 'PATCH', 'PUT', 'DELETE'],
 }
