@@ -7,6 +7,7 @@ const CLIENT_URL = process.env.CLIENT_URL
 import authROute from './routes/auth.route.js'
 import cors from 'cors'
 const app = express();
+app.use(cors())
 dotenv.config();
 app.use(express.json());
 app.use(cookieParse());
